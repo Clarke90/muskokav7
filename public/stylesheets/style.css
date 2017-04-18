@@ -46,7 +46,9 @@ a.nav-link.active {
     border: 2px solid #efefef;
     background: #efefef;
 }
-
+.hide{
+  display: none;
+}
 .blue {
     color: blue;
 }

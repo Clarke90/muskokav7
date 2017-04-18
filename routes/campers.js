@@ -4,7 +4,7 @@ const fs = require('fs');
 var multer  = require('multer')
 var upload = multer({ dest: 'public/uploads/' });
 
-let Camper = require('../models/camper');
+let Camper = require('../models/camper.js');
 
 let passport = require('passport');
 
@@ -37,25 +37,6 @@ router.get('/staff-camper-profiles', function(req, res, next) {
     });
 });
 
-/* GET staff-payment page. */
-router.get('/staff-payment', function(req, res, next) {
-    Camper.find(function(err, queryResults) {
-        if(err){
-            console.log(err);
-            res.end(err);
-            return;
-        }
-        else{
-            console.log(queryResults);
-            res.render('staff-payment', {
-                Camper: queryResults,
-                title: 'Camper payment Details'
-            });
-        }
-    });
-});
-
-
 
 
 
@@ -65,9 +46,6 @@ router.get('/staff-payment', function(req, res, next) {
 router.get('/single-camper-profile', function(req, res, next) {
             res.render('single-camper-profile', { title:'Camper Profile'});
         });
-
-
-
 //add camper
 router.get('/add-camper', function(req, res, next){
     res.render('add-camper', { title:'Add camper'});
@@ -206,9 +184,6 @@ router.get('/camper-delete/:_id', function(req, res, next) {
         res.redirect('/staff-camper-profiles')
     });
 });
-
-
-
 
 // make public
 module.exports = router;

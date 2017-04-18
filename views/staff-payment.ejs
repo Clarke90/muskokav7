@@ -1,5 +1,4 @@
-
-
+<% include ./partials/header.ejs %>
 
   <h1 class="text-center"><%= title %></h1>
 
@@ -32,7 +31,7 @@
             <td>Method</td>
           </tr>
 
-        <% for(var i = 0; i < Camper.length; i++ ) { %>
+        <% for (var i = 0; i < Camper.length; i++) { %>
           <tr>
             <td><%= Camper[i].firstName %> <%= Camper[i].lastName %></td>
             <td><%= Camper[i].amount %></td>
@@ -50,7 +49,4 @@
 
 <a   role="button" class="btn btn-primary" href="/staff-dashboard">Go Back</a>
 <a href="/staff-logout" role="button" class="btn btn-primary">Logout</a>
-
-
-
-
+<% include ./partials/footer.ejs %>

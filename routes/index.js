@@ -4,6 +4,30 @@ var router = express.Router();
 //adding references for register and login for staff
 let passport = require('passport');
 let Account = require('../models/accountStaff');
+let Camper = require('../models/camper.js');
+
+/* GET staff-payment page. */
+router.get('/staff-payment', function(req, res, next) {
+    Camper.find(function(err, queryResults) {
+        if(err){
+            console.log(err);
+            res.end(err);
+            return;
+        }
+        else{
+            console.log(queryResults);
+            res.render('staff-payment', {
+                Camper: queryResults,
+                title: 'Camper payment Details'
+            });
+        }
+    });
+});
+
+
+
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
